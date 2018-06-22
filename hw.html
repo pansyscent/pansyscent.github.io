@@ -17,7 +17,40 @@
                
                 .banner, .banner ul li a{ width:120px; height:120px; }
                 </style>
-                
+                 <script type="text/javascript">
+                    function changecss(theClass,element,value) {
+                     var cssRules;
+                     for (var S = 0; S < document.styleSheets.length; S++){
+                          try{
+                              document.styleSheets[S].insertRule(theClass+' { '+element+': '+value+'; }',document.styleSheets[S][cssRules].length);
+            
+                          } catch(err){
+                                  try{document.styleSheets[S].addRule(theClass,element+': '+value+';');
+            
+                                }catch(err){
+            
+                                     try{
+                                        if (document.styleSheets[S]['rules']) {
+                                          cssRules = 'rules';
+                                         } else if (document.styleSheets[S]['cssRules']) {
+                                          cssRules = 'cssRules';
+                                         } else {
+                                         }
+            
+                                          for (var R = 0; R < document.styleSheets[S][cssRules].length; R++) {
+                                           if (document.styleSheets[S][cssRules][R].selectorText == theClass) {
+                                            if(document.styleSheets[S][cssRules][R].style[element]){
+                                            document.styleSheets[S][cssRules][R].style[element] = value;
+                                            break;
+                                            }
+                                           }
+                                          }
+                                      } catch (err){}
+                                }
+                          }
+                    }
+                }
+            </script>
                 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
                 <script type="text/javascript" src="banner.js"></script>
 
@@ -28,6 +61,16 @@
         a{text-decoration : none;}
         img{border:0;}
         </style>
+        <script>
+        $(document).ready(function(){ 
+            $(".btn").click(function() {
+            $('.tablet12').toggle();
+            }); 
+                }); 
+      
+        </script>
+
+   
             <title>2014726022 김준필</title>
         
             
@@ -67,8 +110,22 @@
                     width:100%;
                     height:100%;
                     overflow:hidden;
-                    
                 }
+                .btn { 
+                width : 50px; 
+                height : 50px;
+                z-index : 1;
+                background-size : 50%; 
+                background-repeat : no-repeat; 
+                background-position : center; 
+                cursor : pointer; 
+                font-style: bold;
+                font-family: 'gro';
+                color : red;
+                font-size:15px;
+                background-image: url("http://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/menu.png");
+                }
+
                 .tablet{
                     width: 150;
                     height: 100;
@@ -84,6 +141,25 @@
                     margin:auto ;
                     border-spacing: 10px;
                     padding:2px;
+                }
+                .tablet12{
+                    width: 150;
+                    height: 100;
+                    
+                    font-family: 'gro';
+                    font-size:15px;
+                    font-weight: bold;
+                    color : rgba(150, 150, 150, 0.9);
+                    display: none;
+                    text-align : center;
+                    vertical-align: middle;
+                
+                    margin:auto ;
+                    border-spacing: 10px;
+                    padding:2px;
+                }
+                #tablet12.open{
+                    display : inline-flex;
                 }
                 /*마우스 올렸을떄*/
                 .tablet > a:hover{ 
@@ -117,69 +193,70 @@
             <TR>
                 <!--왼쪽-->
                 <TD width=200 align=ceter valign=top style="border-width:2; border-color:rgba(255, 155, 160, 0.5); border-style:solid;">
-                      <table width=150 height="100%" border=0 cellSpacing=0 cellPadding=0 style="border-collapse:collapse;">
+                      <table width=140 height="100%" border=0 cellSpacing=0 cellPadding=0 style="border-collapse:collapse;">
         
         
         
         
             <!--메뉴-->
             <tr><td align=center valign=top width="100%" height="100%" bgcolor=#FCEEEF>
-                
+                    <font class="btn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</font>
                     <table align=center valign=top width=150 height="100%" border=0 cellspacing=0 cellpadding=0>
             
         
             <!--메뉴-->
             
         
-            <tr align=left valign=top height=200 bgcolor=#FCEEEF>
+            <tr valign=top height=150 bgcolor=#FCEEEF>
                 <td>
+                        
                                 <table class="tablet">
                                     <tr>
-                                        <td class="tablet">
+                                        <td class="tablet12">
                                                 <a href="./source/bintro.html" target="ifr" OnFocus=blur()>
-                                                        <font color=RED face='star'>ㅡ빵에 관하여</font></a>
+                                                        <font color=RED face='star'>빵에 관하여</font></a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="tablet">
+                                        <td class="tablet12">
                                                 <a href="./source/bmain.html" target="ifr" OnFocus=blur()>
-                                                        <font color=RED face='star'>ㅡ빵 소개</font></a>
+                                                        <font color=RED face='star'>빵 소개</font></a>
                                         </td>
                                         </tr>
                                         <tr>
-                                        <td class="tablet">
+                                        <td class="tablet12">
                                                 <a href="./source/dintro.html" target="ifr" OnFocus=blur()>
-                                                        <font color=RED face='star'>ㅡ디저트란</font></a>
+                                                        <font color=RED face='star'>디저트란</font></a>
                                         </td>
                                         </tr>
                                         <tr>
-                                        <td class="tablet">
+                                        <td class="tablet12">
                                                 <a href="./source/dmain.html" target="ifr" OnFocus=blur()>
-                                                        <font color=RED face='star'>ㅡ디저트 소개</font></a>
+                                                        <font color=RED face='star'>디저트 소개</font></a>
                                         </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div class="simple_banner_wrap banner" data-nav-type="prev_next">
-                                                    <ul>
-                                                        <li style="background-color:#f69;"><a href="#">업데이트</a></li>
-                                                        <li style="background-color:#f96;"><a href="#">빵 소개</a></li>
-                                                        <li style="background-color:#9f6;"><a href="#">소보루</a></li>
-                                                        <li style="background-color:#f69;"><a href="#">바게트</a></li>
-                                                        <li style="background-color:#f69;"><a href="#">베이글</a></li>
-                                                        <li style="background-color:#f96;"><a href="#">식빵</a></li>
-                                                        <li style="background-color:#9f6;"><a href="#">샤베트</a></li>
-                                                        <li style="background-color:#f69;"><a href="#">수플레</a></li>
-                                                        <li style="background-color:#f69;"><a href="#">푸딩</a></li>
-                                                        <li style="background-color:#f96;"><a href="#">카스텔라</a></li>
-                                                    </ul>
-                                                </div>
+                                                    <div class="simple_banner_wrap banner" data-nav-type="prev_next">
+                                                            <ul>
+                                                                <li style="background-color:#f69;"><a href="#">업데이트</a></li>
+                                                                <li style="background-color:#f96;"><a href="#">빵 소개</a></li>
+                                                                <li style="background-color:#9f6;"><a href="#">소보루</a></li>
+                                                                <li style="background-color:#f69;"><a href="#">바게트</a></li>
+                                                                <li style="background-color:#f69;"><a href="#">베이글</a></li>
+                                                                <li style="background-color:#f96;"><a href="#">식빵</a></li>
+                                                                <li style="background-color:#9f6;"><a href="#">샤베트</a></li>
+                                                                <li style="background-color:#f69;"><a href="#">수플레</a></li>
+                                                                <li style="background-color:#f69;"><a href="#">푸딩</a></li>
+                                                                <li style="background-color:#f96;"><a href="#">카스텔라</a></li>
+                                                            </ul>
+                                                        </div>
                                                 </td>
                                         </tr>
                                        
                                     </tr>
                                 </table>
-                              
+                               
                      
                 </td>
             </tr>
